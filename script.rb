@@ -1,12 +1,16 @@
-dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit","down"]
 
-word = "below"
+word = "Howdy partner, sit down! How's it going?"
 
 def substrings(string, dictionary)
   hash = {}
   dictionary.each do |item|
-    if string.index(item)
-      hash[item] = 1
+    string.split(" ").each do |str|
+      if str.downcase.index(item) && hash[item] == nil
+        hash[item] = 1
+      elsif str.downcase.index(item)
+        hash[item] += 1
+      end
     end
   end
   hash
